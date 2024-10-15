@@ -7,6 +7,7 @@ const cors = require('cors');
 const errorHandler = require('./middlewares/errorHandler');
 const { connectToMongoose } = require('./config/db');
 const routes = require('./controllers/routes'); // Importar las rutas centralizadas
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,8 +20,10 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors());
 app.use(passport.initialize());
+app.use(cookieParser());
 
 // Configurar OAuth2
+/*
 passport.use(
   'oauth2',
   new OAuth2Strategy({
@@ -34,8 +37,9 @@ passport.use(
     return cb(null, profile);
   })
 );
+*/
 
-// Rutas
+
 app.use('/auth/provider', passport.authenticate('oauth2'));
 app.use('/auth/callback', 
   passport.authenticate('oauth2', { failureRedirect: '/' }),
