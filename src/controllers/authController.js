@@ -18,7 +18,7 @@ const register = async (req, res) => {
     const UserSaved = await newUser.save();
     const token = await createAccessToken({ id: UserSaved._id });
 
-    res.cookie('token', token)
+    res.cookie('token', token);
 
     res.json({
       message: 'User created successfully',

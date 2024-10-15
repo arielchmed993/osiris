@@ -8,7 +8,7 @@ const companyDataController = require('../controllers/companyDataController');
 const companyAcquisitionController = require('../controllers/companyAcquisitionController');
 const companySiteController = require('../controllers/companySiteController');
 const companyAreaController = require('../controllers/companyAreaController');
-//const authController = require('../controllers/authController');
+//const authController= require('../controllers/authController');
 
 // Middlewares
 const authenticateToken = require('../middlewares/validateToken');
